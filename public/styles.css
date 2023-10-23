@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  
+  header {
+    height: 100px;
+    background-color: darkolivegreen;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 0px 25px;
+  }
+  
+  main {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    min-height: calc(100vh - 175px);
+    background-color: darkgrey;
+  }
+  
+  .company-name {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 700;
+    text-shadow: -3px 3px black;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-around;
+    width: 350px;
+  }
+  
+  .links {
+    color: white;
+  }
+  
+  .links:hover {
+    color: orange;
+    font-weight: 500;
+  }
+  
+  .cart {
+    background-color: darkgrey;
+    height: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #050740;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+  
+  .shirt-border {
+    background-color: #050740;
+    height: 300px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 10px;
+    color: white;
+  }
+  
+  .shirt-pic {
+    height: 185px;
+    width: 180px;
+    border-radius: 10px;
+  }
+  
+  button {
+    padding: 5px 10px;
+    border: none;
+    background-color: darkorange;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    box-shadow: 0 0 10px white;
+  }
+  
+  button:active {
+    transform: scale(0.9, 0.9);
+  }
+  
+  footer {
+    height: 55px;
+    background-color: darkolivegreen;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+  }
+  
+  .email-sign-up {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 700px;
+  }
+  
+  input {
+    font-family: sans-serif;
+    width: 200px;
+  }
+  
