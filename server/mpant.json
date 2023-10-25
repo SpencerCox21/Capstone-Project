@@ -1,0 +1,56 @@
+[
+{
+    "id": 1,
+    "color": "light-jeans",
+    "price": 15,
+    "imageURL" : "https://m.media-amazon.com/images/I/910CkI4AzvL._AC_SX679_.jpg"
+},
+{
+    "id": 2,
+    "color": "dark-jeans",
+    "price": 15,
+    "imageURL" : "https://m.media-amazon.com/images/I/81GafoE0u7L._AC_SY879_.jpg"
+},
+{
+    "id": 3,
+    "color": "black-jeans",
+    "price": 15,
+    "imageURL" : "https://m.media-amazon.com/images/I/71xuLy+MVvL._AC_SY879_.jpg"
+},
+{
+    "id": 4,
+    "color": "blue-shorts",
+    "price": 15,
+    "imageURL" : "https://m.media-amazon.com/images/I/617ku4jqIXL._AC_SX679_.jpg"
+},
+{
+    "id": 5,
+    "color": "red-shorts",
+    "price": 15,
+    "imageURL" : "https://m.media-amazon.com/images/I/41FnWZCIuuL._AC_SX679_.jpg"
+},
+{
+    "id": 6,
+    "color": "green-shorts",
+    "price": 15,
+    "imageURL" : "https://m.media-amazon.com/images/I/41FnWZCIuuL._AC_SX679_.jpg"
+},
+{
+    "id": 7,
+    "color": "grey-sweats",
+    "price": 15,
+    "imageURL" : "https://m.media-amazon.com/images/I/81uJeAawKHL._AC_SX679_.jpg"
+},
+{
+    "id": 8,
+    "color": "blue-sweats",
+    "price": 15,
+    "imageURL" : "https://m.media-amazon.com/images/I/81ZuTYRSfQL._AC_SY879_.jpg"
+},
+{
+    "id": 9,
+    "color": "black-sweats",
+    "price": 15,
+    "imageURL" : "https://m.media-amazon.com/images/I/7105olOur1L._AC_SX679_.jpg"
+}
+]
