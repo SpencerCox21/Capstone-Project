@@ -60,7 +60,7 @@ body {
     color: #050740;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex;
     padding: 20px;
     padding-top: 30px;
     padding-bottom: 40px;
@@ -111,15 +111,15 @@ body {
     padding: 0px 20px;
   }
   
-  .email-sign-up {
+  .comment {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 700px;
   }
   
-  input {
+  /* input {
     font-family: sans-serif;
     width: 200px;
-  }
+  } */
   

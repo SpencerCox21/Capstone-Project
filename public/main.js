@@ -27,6 +27,11 @@ const deleteItem = color => axios.delete(`${baseURL}/${color}`).then(cartCallbac
 
 
 
+let cartCountText = document.querySelector("#cart-count");
+let footer = document.querySelector("footer");
+
+let commentForm = document.querySelector(".comment");
+let commetnBtn = document.querySelector("#comment");
 
 
 
@@ -34,37 +39,137 @@ const deleteItem = color => axios.delete(`${baseURL}/${color}`).then(cartCallbac
 
 
 
+let count = 0;
 
-
-
-
-
-
-
-function createItemCard(house) {
-    const itemCard = document.createElement('div')
-    itemCard.classList.add('house-card')
-
-    itemCard.innerHTML = `<img alt='house cover image' src=${house.imageURL} class="house-cover-image"/>
-    <p class="address">${house.address}</p>
-    <div class="btns-container">
-        <button onclick="updateHouse(${house.id}, 'minus')">-</button>
-        <p class="house-price">$${house.price}</p>
-        <button onclick="updateHouse(${house.id}, 'plus')">+</button>
-    </div>
-    <button onclick="deleteHouse(${house.id})">delete</button>
-    `
-
-
-    housesContainer.appendChild(itemCard)
+function addToCart() {
+  count++;
+  if (count === 1) {
+    cartCountText.textContent = count + " Item";
+  } else {
+    cartCountText.textContent = count + " Items";
+  }
 }
 
 
+function commentSubmit() {
+  var confirmationMessage = document.createElement("p");
+  confirmationMessage.textContent =
+    "Thank you for leaving a comment."
 
-function displayItems(arr) {
-    housesContainer.innerHTML = ``
+  commentForm.remove();
+
+  footer.appendChild(confirmationMessage);
+}
+
+commentBtn.addEventListener("click", commentSubmit);
+
+
+
+
+
+
+// function createItemCard(house) {
+//     const itemCard = document.createElement('div')
+//     itemCard.classList.add('house-card')
+
+//     itemCard.innerHTML = `<img alt='house cover image' src=${house.imageURL} class="house-cover-image"/>
+//     <p class="address">${house.address}</p>
+//     <div class="btns-container">
+//         <button onclick="updateHouse(${house.id}, 'minus')">-</button>
+//         <p class="house-price">$${house.price}</p>
+//         <button onclick="updateHouse(${house.id}, 'plus')">+</button>
+//     </div>
+//     <button onclick="deleteHouse(${house.id})">delete</button>
+//     `
+
+
+//     housesContainer.appendChild(itemCard)
+// }
+
+function createItemCardMShirt(mshirt) {
+    const itemCard = document.createElement('div')
+    itemCard.classList.add('shirt-border')
+
+    itemCard.innerHTML = `<img alt='shirt image' src=${mshirt.imageURL} class="shirt-pic"/>
+    <p class="color">${mshirt.color}</p>
+    <div class="btns-container">
+    <button onclick="deleteItem(${cart.color})">delete</button>
+    </div>
+    `
+
+
+    itemContainer.appendChild(itemCard)
+}
+function displayMShirt(arr) {
+    itemContainer.innerHTML = ``
     for (let i = 0; i < arr.length; i++) {
-        createHouseCard(arr[i])
+        createItemCardMShirt(arr[i])
+    }
+}
+
+
+function createItemCardFShirt(fshirt) {
+    const itemCard = document.createElement('div')
+    itemCard.classList.add('shirt-border')
+
+    itemCard.innerHTML = `<img alt='shirt image' src=${fshirt.imageURL} class="shirt-pic"/>
+    <p class="color">${fshirt.color}</p>
+    <div class="btns-container">
+    <button onclick="deleteItem(${cart.color})">delete</button>
+    </div>
+    `
+
+
+    itemContainer.appendChild(itemCard)
+}
+function displayFShirt(arr) {
+    itemContainer.innerHTML = ``
+    for (let i = 0; i < arr.length; i++) {
+        createItemCardFShirt(arr[i])
+    }
+}
+
+
+function createItemCardMPant(mpant) {
+    const itemCard = document.createElement('div')
+    itemCard.classList.add('shirt-border')
+
+    itemCard.innerHTML = `<img alt='pant image' src=${mpant.imageURL} class="shirt-pic"/>
+    <p class="color">${mpant.color}</p>
+    <div class="btns-container">
+    <button onclick="deleteItem(${cart.color})">delete</button>
+    </div>
+    `
+
+
+    itemContainer.appendChild(itemCard)
+}
+function displayMPant(arr) {
+    itemContainer.innerHTML = ``
+    for (let i = 0; i < arr.length; i++) {
+        createItemCardMPant(arr[i])
+    }
+}
+
+
+function createItemCardFPant(fpant) {
+    const itemCard = document.createElement('div')
+    itemCard.classList.add('shirt-border')
+
+    itemCard.innerHTML = `<img alt='pant image' src=${fpant.imageURL} class="shirt-pic"/>
+    <p class="color">${fpant.color}</p>
+    <div class="btns-container">
+    <button onclick="deleteItem(${cart.color})">delete</button>
+    </div>
+    `
+
+
+    itemContainer.appendChild(itemCard)
+}
+function displayFPant(arr) {
+    itemContainer.innerHTML = ``
+    for (let i = 0; i < arr.length; i++) {
+        createItemCardFPant(arr[i])
     }
 }
 
@@ -109,13 +214,6 @@ function displayItems(arr) {
 
 
 
-
-
-// var cartCountText = document.querySelector("#cart-count");
-// var signUpForm = document.querySelector(".email-sign-up");
-// var emailInput = document.querySelector("input");
-// var signUpBtn = document.querySelector("#sign-up");
-// var footer = document.querySelector("footer");
 // var blackBtn = document.querySelector("#black-btn");
 // var whiteBtn = document.querySelector("#white-btn");
 // var greyBtn = document.querySelector("#grey-btn");
@@ -130,29 +228,6 @@ function displayItems(arr) {
 // var pinkBtn = document.querySelector("#pink-btn");
 
 
-// var count = 0;
-
-// function addToCart() {
-//   count = count + 1;
-//   if (count === 1) {
-//     cartCountText.textContent = count + " Item";
-//   } else {
-//     cartCountText.textContent = count + " Items";
-//   }
-// }
-
-// function emailSubmit() {
-//   var confirmationMessage = document.createElement("p");
-//   confirmationMessage.textContent =
-//     "Thank you for signing up to our newsletter, we sent a confirmation email to " +
-//     emailInput.value;
-
-//   signUpForm.remove();
-
-//   footer.appendChild(confirmationMessage);
-// }
-
-// signUpBtn.addEventListener("click", emailSubmit);
 
 // blackBtn.addEventListener("click", addToCart);
 // whiteBtn.addEventListener("click", addToCart);
