@@ -1,7 +1,7 @@
 [
     {
-        "id": 1,
-        "color": "black-m",
+        "id": "black-m",
+        "color": "Black",
         "price": 15,
         "imageURL" : "https://www.onceuponatee.net/cdn/shop/products/Blank-MBas3-Black_1024x1024.jpg?v=1578622133"
     },

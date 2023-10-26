@@ -1,31 +1,12 @@
-const baseURL = `http://localhost:5500/api`
+const baseURL = `http://localhost:5500`
 
 const itemContainer = document.querySelector('#item-container')
 const cartContainer = document.querySelector('#cart-container')
 
-
-const mshirtCallback = ({ data: mshirt }) => displayMShirt(mshirt)
-const fshirtCallback = ({ data: fshirt }) => displayFShirt(fshirt)
-const mpantCallback = ({ data: mpant }) => displayMPant(mpant)
-const fpantCallback = ({ data: fpant }) => displayFPant(fpant)
-const cartCallback = ({ data: cart }) => displayCart(cart)
-const errCallback = err => console.log(err);
-
-
-
-const getShirtM = () => axios.get(`${baseURL}/mshirt`).then(mshirtCallback).catch(errCallback)
-const getShirtF = () => axios.get(`${baseURL}/fshirt`).then(fshirtCallback).catch(errCallback)
-const getPantM = () => axios.get(`${baseURL}/mpant`).then(mpantCallback).catch(errCallback)
-const getPantF = () => axios.get(`${baseURL}/fpant`).then(fpantCallback).catch(errCallback)
-const getCart = () => axios.get(`${baseURL}/cart`).then(cartCallback).catch(errCallback)
-
-const deleteItem = color => axios.delete(`${baseURL}/${color}`).then(cartCallback).catch(errCallback)
-
-
-
-
-
-
+const mShirtLink = document.querySelector('#mShirtLink')
+const fShirtLink = document.querySelector('#fShirtLink')
+const mPantLink = document.querySelector('#mPantLink')
+const fPantLink = document.querySelector('#fPantLink')
 
 let cartCountText = document.querySelector("#cart-count");
 let footer = document.querySelector("footer");
@@ -37,54 +18,38 @@ let commetnBtn = document.querySelector("#comment");
 
 
 
+// const mshirtCallback = ({ data: mshirt }) => displayMShirt(mshirt)
+// const fshirtCallback = ({ data: fshirt }) => displayFShirt(fshirt)
+// const mpantCallback = ({ data: mpant }) => displayMPant(mpant)
+// const fpantCallback = ({ data: fpant }) => displayFPant(fpant)
+// const cartCallback = ({ data: cart }) => displayCart(cart)
+const errCallback = err => console.log(err);
 
 
-let count = 0;
 
-function addToCart() {
-  count++;
-  if (count === 1) {
-    cartCountText.textContent = count + " Item";
-  } else {
-    cartCountText.textContent = count + " Items";
-  }
-}
+const getMShirt = () => axios.get(`${baseURL}/mshirt`).then((res) => {displayMShirt(res.data)}).catch(errCallback)
+const getShirtF = () => axios.get(`${baseURL}/fshirt`).then((res) => {displayMShirt(res.data)}).catch(errCallback)
+const getPantM = () => axios.get(`${baseURL}/mpant`).then((res) => {displayMShirt(res.data)}).catch(errCallback)
+const getPantF = () => axios.get(`${baseURL}/fpant`).then((res) => {displayMShirt(res.data)}).catch(errCallback)
+// const getCart = () => axios.get(`${baseURL}/cart`).then(cartCallback).catch(errCallback)
 
-
-function commentSubmit() {
-  var confirmationMessage = document.createElement("p");
-  confirmationMessage.textContent =
-    "Thank you for leaving a comment."
-
-  commentForm.remove();
-
-  footer.appendChild(confirmationMessage);
-}
-
-commentBtn.addEventListener("click", commentSubmit);
+const deleteItem = color => axios.delete(`${baseURL}/cart.${color}`).then(cartCallback).catch(errCallback)
 
 
 
 
 
 
-// function createItemCard(house) {
-//     const itemCard = document.createElement('div')
-//     itemCard.classList.add('house-card')
 
-//     itemCard.innerHTML = `<img alt='house cover image' src=${house.imageURL} class="house-cover-image"/>
-//     <p class="address">${house.address}</p>
-//     <div class="btns-container">
-//         <button onclick="updateHouse(${house.id}, 'minus')">-</button>
-//         <p class="house-price">$${house.price}</p>
-//         <button onclick="updateHouse(${house.id}, 'plus')">+</button>
-//     </div>
-//     <button onclick="deleteHouse(${house.id})">delete</button>
-//     `
+mShirtLink.addEventListener("click", getMShirt);
+fShirtLink.addEventListener("click", displayFShirt);
+mPantLink.addEventListener("click", displayMPant);
+fPantLink.addEventListener("click", displayFPant);
 
 
-//     housesContainer.appendChild(itemCard)
-// }
+
+
+
 
 function createItemCardMShirt(mshirt) {
     const itemCard = document.createElement('div')
@@ -93,10 +58,10 @@ function createItemCardMShirt(mshirt) {
     itemCard.innerHTML = `<img alt='shirt image' src=${mshirt.imageURL} class="shirt-pic"/>
     <p class="color">${mshirt.color}</p>
     <div class="btns-container">
-    <button onclick="deleteItem(${cart.color})">delete</button>
+    <button>Add to Cart</button>
     </div>
     `
-
+    // replace button line with <button onclick="addToCart(${mshirt.id})"> when I get the addToCart fuction made.
 
     itemContainer.appendChild(itemCard)
 }
@@ -106,6 +71,7 @@ function displayMShirt(arr) {
         createItemCardMShirt(arr[i])
     }
 }
+
 
 
 function createItemCardFShirt(fshirt) {
@@ -130,6 +96,7 @@ function displayFShirt(arr) {
 }
 
 
+
 function createItemCardMPant(mpant) {
     const itemCard = document.createElement('div')
     itemCard.classList.add('shirt-border')
@@ -150,6 +117,7 @@ function displayMPant(arr) {
         createItemCardMPant(arr[i])
     }
 }
+
 
 
 function createItemCardFPant(fpant) {
@@ -177,67 +145,30 @@ function displayFPant(arr) {
 
 
 
+let count = 0;
+
+function addToCart() {
+  count++;
+  if (count === 1) {
+    cartCountText.textContent = count + " Item";
+  } else {
+    cartCountText.textContent = count + " Items";
+  }
+}
 
 
 
+// function commentSubmit() {
+//     var confirmationMessage = document.createElement("p");
+//     confirmationMessage.textContent =
+//       "Thank you for leaving a comment."
+  
+//     commentForm.remove();
+  
+//     footer.appendChild(confirmationMessage);
+//   }
+  
+//   commentBtn.addEventListener("click", commentSubmit);
+  
+  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var blackBtn = document.querySelector("#black-btn");
-// var whiteBtn = document.querySelector("#white-btn");
-// var greyBtn = document.querySelector("#grey-btn");
-// var redBtn = document.querySelector("#red-btn");
-// var blueBtn = document.querySelector("#blue-btn");
-// var orangeBtn = document.querySelector("#orange-btn");
-// var greenBtn = document.querySelector("#green-btn");
-// var yellowBtn = document.querySelector("#yellow-btn");
-// var purpleBtn = document.querySelector("#purple-btn");
-// var maroonBtn = document.querySelector("#maroon-btn");
-// var babyBlueBtn = document.querySelector("#babyBlue-btn");
-// var pinkBtn = document.querySelector("#pink-btn");
-
-
-
-// blackBtn.addEventListener("click", addToCart);
-// whiteBtn.addEventListener("click", addToCart);
-// greyBtn.addEventListener("click", addToCart);
-// redBtn.addEventListener("click", addToCart);
-// blueBtn.addEventListener("click", addToCart);
-// orangeBtn.addEventListener("click", addToCart);
-// greenBtn.addEventListener("click", addToCart);
-// yellowBtn.addEventListener("click", addToCart);
-// purpleBtn.addEventListener("click", addToCart);
-// maroonBtn.addEventListener("click", addToCart);
-// babyBlueBtn.addEventListener("click", addToCart);
-// pinkBtn.addEventListener("click", addToCart);
