@@ -1,55 +1,55 @@
 [
 {
-    "id": 1,
-    "color": "light-jeans-m",
+    "id": "light-jeans-m",
+    "color": "Light Jeans",
     "price": 15,
     "imageURL" : "https://m.media-amazon.com/images/I/910CkI4AzvL._AC_SX679_.jpg"
 },
 {
-    "id": 2,
-    "color": "dark-jeans-m",
+    "id": "dark-jeans-m",
+    "color": "Dark Jeans",
     "price": 15,
     "imageURL" : "https://m.media-amazon.com/images/I/81GafoE0u7L._AC_SY879_.jpg"
 },
 {
-    "id": 3,
-    "color": "black-jeans-m",
+    "id": "black-jeans-m",
+    "color": "Black Jeans",
     "price": 15,
     "imageURL" : "https://m.media-amazon.com/images/I/71xuLy+MVvL._AC_SY879_.jpg"
 },
 {
-    "id": 4,
-    "color": "blue-shorts-m",
+    "id": "blue-shorts-m",
+    "color": "Blue Shorts",
     "price": 15,
     "imageURL" : "https://m.media-amazon.com/images/I/617ku4jqIXL._AC_SX679_.jpg"
 },
 {
-    "id": 5,
-    "color": "red-shorts-m",
+    "id": "red-shorts-m",
+    "color": "Red Shorts",
     "price": 15,
     "imageURL" : "https://m.media-amazon.com/images/I/41FnWZCIuuL._AC_SX679_.jpg"
 },
 {
-    "id": 6,
-    "color": "green-shorts-m",
+    "id": "green-shorts-m",
+    "color": "Green Shorts",
     "price": 15,
     "imageURL" : "https://m.media-amazon.com/images/I/41FnWZCIuuL._AC_SX679_.jpg"
 },
 {
-    "id": 7,
-    "color": "grey-sweats-m",
+    "id": "grey-sweats-m",
+    "color": "Grey Sweats",
     "price": 15,
     "imageURL" : "https://m.media-amazon.com/images/I/81uJeAawKHL._AC_SX679_.jpg"
 },
 {
-    "id": 8,
-    "color": "blue-sweats-m",
+    "id": "blue-sweats-m",
+    "color": "Blue Sweats",
     "price": 15,
     "imageURL" : "https://m.media-amazon.com/images/I/81ZuTYRSfQL._AC_SY879_.jpg"
 },
 {
-    "id": 9,
-    "color": "black-sweats-m",
+    "id": "black-sweats-m",
+    "color": "Black Sweats",
     "price": 15,
     "imageURL" : "https://m.media-amazon.com/images/I/7105olOur1L._AC_SX679_.jpg"
 }

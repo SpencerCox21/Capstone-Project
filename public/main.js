@@ -28,9 +28,9 @@ const errCallback = err => console.log(err);
 
 
 const getMShirt = () => axios.get(`${baseURL}/mshirt`).then((res) => {displayMShirt(res.data)}).catch(errCallback)
-const getShirtF = () => axios.get(`${baseURL}/fshirt`).then((res) => {displayMShirt(res.data)}).catch(errCallback)
-const getPantM = () => axios.get(`${baseURL}/mpant`).then((res) => {displayMShirt(res.data)}).catch(errCallback)
-const getPantF = () => axios.get(`${baseURL}/fpant`).then((res) => {displayMShirt(res.data)}).catch(errCallback)
+const getFShirt = () => axios.get(`${baseURL}/fshirt`).then((res) => {displayFShirt(res.data)}).catch(errCallback)
+const getMPant = () => axios.get(`${baseURL}/mpant`).then((res) => {displayMPant(res.data)}).catch(errCallback)
+const getFPant = () => axios.get(`${baseURL}/fpant`).then((res) => {displayFPant(res.data)}).catch(errCallback)
 // const getCart = () => axios.get(`${baseURL}/cart`).then(cartCallback).catch(errCallback)
 
 const deleteItem = color => axios.delete(`${baseURL}/cart.${color}`).then(cartCallback).catch(errCallback)
@@ -42,9 +42,9 @@ const deleteItem = color => axios.delete(`${baseURL}/cart.${color}`).then(cartCa
 
 
 mShirtLink.addEventListener("click", getMShirt);
-fShirtLink.addEventListener("click", displayFShirt);
-mPantLink.addEventListener("click", displayMPant);
-fPantLink.addEventListener("click", displayFPant);
+fShirtLink.addEventListener("click", getFShirt);
+mPantLink.addEventListener("click", getMPant);
+fPantLink.addEventListener("click", getFPant);
 
 
 
@@ -81,9 +81,10 @@ function createItemCardFShirt(fshirt) {
     itemCard.innerHTML = `<img alt='shirt image' src=${fshirt.imageURL} class="shirt-pic"/>
     <p class="color">${fshirt.color}</p>
     <div class="btns-container">
-    <button onclick="deleteItem(${cart.color})">delete</button>
+    <button>Add to Cart</button>
     </div>
     `
+    // replace button line with <button onclick="addToCart(${mshirt.id})"> when I get the addToCart fuction made.
 
 
     itemContainer.appendChild(itemCard)
@@ -104,9 +105,10 @@ function createItemCardMPant(mpant) {
     itemCard.innerHTML = `<img alt='pant image' src=${mpant.imageURL} class="shirt-pic"/>
     <p class="color">${mpant.color}</p>
     <div class="btns-container">
-    <button onclick="deleteItem(${cart.color})">delete</button>
+    <button>Add to Cart</button>
     </div>
     `
+    // replace button line with <button onclick="addToCart(${mshirt.id})"> when I get the addToCart fuction made.
 
 
     itemContainer.appendChild(itemCard)
@@ -127,9 +129,10 @@ function createItemCardFPant(fpant) {
     itemCard.innerHTML = `<img alt='pant image' src=${fpant.imageURL} class="shirt-pic"/>
     <p class="color">${fpant.color}</p>
     <div class="btns-container">
-    <button onclick="deleteItem(${cart.color})">delete</button>
+    <button>Add to Cart</button>
     </div>
     `
+    // replace button line with <button onclick="addToCart(${mshirt.id})"> when I get the addToCart fuction made.
 
 
     itemContainer.appendChild(itemCard)
