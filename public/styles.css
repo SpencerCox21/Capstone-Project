@@ -46,6 +46,11 @@ body {
     color: orange;
     font-weight: 500;
   }
+
+  .links:active {
+    color:red;
+    font-weight: 500;
+  }
   
   .cart {
     background-color: darkgrey;

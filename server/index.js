@@ -9,23 +9,32 @@ app.use(cors())
 
 
 
-const {getHouses, createHouse, deleteHouse, updateHouse} = require('./controller')
+
+
+const {getShirtM, getShirtF, getPantM, getPantF, deleteItem} = require('./controller')
 
  
 
 
-app.get('/api/houses', getHouses)
+app.get('/api/houses', getShirtM)
 
-app.post('/api/houses', createHouse)
+app.get('/api/houses', getShirtF)
 
-app.delete('/api/houses/:id', deleteHouse)
+app.get('/api/houses', getPantM)
 
-app.put('/api/houses/:id', updateHouse)
-
-
+app.get('/api/houses', getPantF)
 
 
+app.delete('/api/houses/:id', deleteItem)
 
 
 
-app.listen(4004, () => {console.log('Running on server port: 4004')})
+
+
+
+
+
+
+
+
+app.listen(5500, () => {console.log('Running on server port: 5500')})

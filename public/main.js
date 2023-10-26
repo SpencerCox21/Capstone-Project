@@ -1,9 +1,16 @@
 const baseURL = `http://localhost:5500/public`
 
+const itemContainer = document.querySelector('#item-container')
 const cartContainer = document.querySelector('#cart-container')
 
 
+const housesCallback = ({ data: houses }) => displayHouses(houses)
+const errCallback = err => console.log(err);
 
+const getAllHouses = () => axios.get(baseURL).then(housesCallback).catch(errCallback)
+const createHouse = body => axios.post(baseURL, body).then(housesCallback).catch(errCallback)
+const deleteHouse = id => axios.delete(`${baseURL}/${id}`).then(housesCallback).catch(errCallback)
+const updateHouse = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(housesCallback).catch(errCallback)
 
 
 
