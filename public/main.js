@@ -1,16 +1,25 @@
-const baseURL = `http://localhost:5500/public`
+const baseURL = `http://localhost:5500/api`
 
 const itemContainer = document.querySelector('#item-container')
 const cartContainer = document.querySelector('#cart-container')
 
 
-const housesCallback = ({ data: houses }) => displayHouses(houses)
+const mshirtCallback = ({ data: mshirt }) => displayMShirt(mshirt)
+const fshirtCallback = ({ data: fshirt }) => displayFShirt(fshirt)
+const mpantCallback = ({ data: mpant }) => displayMPant(mpant)
+const fpantCallback = ({ data: fpant }) => displayFPant(fpant)
+const cartCallback = ({ data: cart }) => displayCart(cart)
 const errCallback = err => console.log(err);
 
-const getAllHouses = () => axios.get(baseURL).then(housesCallback).catch(errCallback)
-const createHouse = body => axios.post(baseURL, body).then(housesCallback).catch(errCallback)
-const deleteHouse = id => axios.delete(`${baseURL}/${id}`).then(housesCallback).catch(errCallback)
-const updateHouse = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(housesCallback).catch(errCallback)
+
+
+const getShirtM = () => axios.get(`${baseURL}/mshirt`).then(mshirtCallback).catch(errCallback)
+const getShirtF = () => axios.get(`${baseURL}/fshirt`).then(fshirtCallback).catch(errCallback)
+const getPantM = () => axios.get(`${baseURL}/mpant`).then(mpantCallback).catch(errCallback)
+const getPantF = () => axios.get(`${baseURL}/fpant`).then(fpantCallback).catch(errCallback)
+const getCart = () => axios.get(`${baseURL}/cart`).then(cartCallback).catch(errCallback)
+
+const deleteItem = color => axios.delete(`${baseURL}/${color}`).then(cartCallback).catch(errCallback)
 
 
 
@@ -32,9 +41,32 @@ const updateHouse = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(hou
 
 
 
+function createItemCard(house) {
+    const itemCard = document.createElement('div')
+    itemCard.classList.add('house-card')
+
+    itemCard.innerHTML = `<img alt='house cover image' src=${house.imageURL} class="house-cover-image"/>
+    <p class="address">${house.address}</p>
+    <div class="btns-container">
+        <button onclick="updateHouse(${house.id}, 'minus')">-</button>
+        <p class="house-price">$${house.price}</p>
+        <button onclick="updateHouse(${house.id}, 'plus')">+</button>
+    </div>
+    <button onclick="deleteHouse(${house.id})">delete</button>
+    `
+
+
+    housesContainer.appendChild(itemCard)
+}
 
 
 
+function displayItems(arr) {
+    housesContainer.innerHTML = ``
+    for (let i = 0; i < arr.length; i++) {
+        createHouseCard(arr[i])
+    }
+}
 
 
 

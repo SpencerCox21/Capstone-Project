@@ -1,77 +1,77 @@
 [
     {
         "id": 1,
-        "color": "black",
+        "color": "black-m",
         "price": 15,
         "imageURL" : "https://www.onceuponatee.net/cdn/shop/products/Blank-MBas3-Black_1024x1024.jpg?v=1578622133"
     },
 
     {
         "id": 2,
-        "color": "white",
+        "color": "white-m",
         "price": 15,
         "imageURL" : "https://www.onceuponatee.net/cdn/shop/products/Blank-MBas3-White_1024x1024.jpg?v=1578622134"
     },
 
     {
         "id": 3,
-        "color": "grey",
+        "color": "grey-m",
         "price": 15,
         "imageURL" : "https://www.onceuponatee.net/cdn/shop/products/Blank-MBas3-Grey_1024x1024.jpg?v=1578622134"
     },
       
     {
         "id": 4,
-        "color": "red",
+        "color": "red-m",
         "price": 15,
         "imageURL" : "https://www.onceuponatee.net/cdn/shop/products/Blank-MBas3-Red_1024x1024.jpg?v=1578622134"
     },
       
     {
         "id": 5,
-        "color": "blue",
+        "color": "blue-m",
         "price": 15,
         "imageURL" : "https://www.onceuponatee.net/cdn/shop/products/Blank-MBas3-Sapphire_1024x1024.jpg?v=1578622134"
     },
     {
         "id": 6,
-        "color": "orange",
+        "color": "orange-m",
         "price": 15,
         "imageURL" : "https://www.onceuponatee.net/cdn/shop/products/Blank-MBas3-Orange_1024x1024.jpg?v=1578622134"
     },
     {
         "id": 7,
-        "color": "green",
+        "color": "green-m",
         "price": 15,
         "imageURL" : "https://www.onceuponatee.net/cdn/shop/products/Blank-MBas3-Green_1024x1024.jpg?v=1578622134"
     },
     {
         "id": 8,
-        "color": "yellow",
+        "color": "yellow-m",
         "price": 15,
         "imageURL" : "https://www.onceuponatee.net/cdn/shop/products/Blank-MBas3-Yellow_1024x1024.jpg?v=1578622134"
     },
     {
         "id": 9,
-        "color": "purple",
+        "color": "purple-m",
         "price": 15,
         "imageURL" : "https://www.onceuponatee.net/cdn/shop/products/Blank-MBas3-Purple_1024x1024.jpg?v=1578622134"
     },
     {
         "id": 10,
-        "color": "maroon",
+        "color": "maroon-m",
         "price": 15,
         "imageURL" : "https://www.onceuponatee.net/cdn/shop/products/Blank-MBas3-Maroon_1024x1024.jpg?v=1578622134"
     },
     {
         "id": 11,
-        "color": "light-blue",
+        "color": "light-blue-m",
         "price": 15,
         "imageURL" : "https://www.onceuponatee.net/cdn/shop/products/Blank-MBas3-LB_1024x1024.jpg?v=1578622134"
     },
     {
         "id": 12,
-        "color": "pink",
+        "color": "pink-m",
         "price": 15,
         "imageURL" : "https://www.onceuponatee.net/cdn/shop/products/Blank-MBas3-Pink_1024x1024.jpg?v=1578622134"
     }

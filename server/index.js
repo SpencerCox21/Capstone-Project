@@ -11,18 +11,20 @@ app.use(cors())
 
 
 
-const {getShirtM, getShirtF, getPantM, getPantF, deleteItem} = require('./controller')
+const {getShirtM, getShirtF, getPantM, getPantF, getCart, deleteItem} = require('./controller')
 
  
 
 
-app.get('/api/houses', getShirtM)
+app.get('/mshirt', getShirtM)
 
-app.get('/api/houses', getShirtF)
+app.get('/fshirt', getShirtF)
 
-app.get('/api/houses', getPantM)
+app.get('/mpant', getPantM)
 
-app.get('/api/houses', getPantF)
+app.get('/fpant', getPantF)
+
+app.get('/cart', getCart)
 
 
 app.delete('/api/houses/:id', deleteItem)

@@ -1,55 +1,55 @@
 [
     {
         "id": 1,
-        "color": "light-jeans",
+        "color": "light-jeans-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/71IOM9JNWhL._AC_SY879_.jpg"
     },
     {
         "id": 2,
-        "color": "dark-jeans",
+        "color": "dark-jeans-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/61rN5V4WnGL._AC_SY879_.jpg"
     },
     {
         "id": 3,
-        "color": "black-jeans",
+        "color": "black-jeans-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/612QpagqNWL._AC_SX679_.jpg"
     },
     {
         "id": 4,
-        "color": "blue-shorts",
+        "color": "blue-shorts-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/81NNAh2yXZL._AC_SX679_.jpg"
     },
     {
         "id": 5,
-        "color": "red-shorts",
+        "color": "red-shorts-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/81TcnhoY4lL._AC_SX679_.jpg"
     },
     {
         "id": 6,
-        "color": "green-shorts",
+        "color": "green-shorts-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/81EztToPGaL._AC_SX679_.jpg"
     },
     {
         "id": 7,
-        "color": "grey-sweats",
+        "color": "grey-sweats-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/71XuabwPYnL._AC_SY879_.jpg"
     },
     {
         "id": 8,
-        "color": "blue-sweats",
+        "color": "blue-sweats-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/61ek6WZdwQL._AC_SY879_.jpg"
     },
     {
         "id": 9,
-        "color": "black-sweats",
+        "color": "black-sweats-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/61t4ZcvR4fL._AC_SY879_.jpg"
     }

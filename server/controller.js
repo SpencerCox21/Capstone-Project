@@ -1,4 +1,7 @@
-const houses = require('./db.json')
+const mshirt = require('./mshirt.json')
+const fshirt = require('./fshirt.json')
+const mpant = require('./mpant.json')
+const fpant = require('./fpant.json')
 
 
 
@@ -7,19 +10,23 @@ const houses = require('./db.json')
 
 module.exports = {
     getShirtM: (req, res) => {
-        res.status(200).send(houses)
+        res.status(200).send(mshirt)
     },
 
     getShirtF: (req, res) => {
-        res.status(200).send(houses)
+        res.status(200).send(fshirt)
     },
 
     getPantM: (req, res) => {
-        res.status(200).send(houses)
+        res.status(200).send(mpant)
     },
 
     getPantF: (req, res) => {
-        res.status(200).send(houses)
+        res.status(200).send(fpant)
+    },
+
+    getCart: (req, res) => {
+        res.status(200).send(cart)
     },
 
     deleteItem: (req, res) => {

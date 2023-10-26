@@ -1,71 +1,71 @@
 [
     {
         "id": 1,
-        "color": "black",
+        "color": "black-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/61Mcs10HAbL._AC_SY879_.jpg"
     },
 
     {
         "id": 2,
-        "color": "white",
+        "color": "white-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/61t-M-7fE-L._AC_SY879_.jpg"
     },
 
     {
         "id": 3,
-        "color": "grey",
+        "color": "grey-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/71-pY06IvQL._AC_SY879_.jpg"
     },
       
     {
         "id": 4,
-        "color": "red",
+        "color": "red-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/61ZXOBtWDsL._AC_SY879_.jpg"
     },
       
     {
         "id": 5,
-        "color": "blue",
+        "color": "blue-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/718dp0PeyqL._AC_SY879_.jpg"
     },
     {
         "id": 6,
-        "color": "cream",
+        "color": "cream-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/71xNdDbwgHL._AC_SY879_.jpg"
     },
     {
         "id": 7,
-        "color": "green",
+        "color": "green-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/71K+++QeRBL._AC_SY879_.jpg"
     },
     {
         "id": 8,
-        "color": "yellow",
+        "color": "yellow-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/615KADj2ZLL._AC_SY879_.jpg"
     },
     {
         "id": 9,
-        "color": "purple",
+        "color": "purple-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/71MAz1rhDlL._AC_SY879_.jpg"
     },
     {
         "id": 10,
-        "color": "maroon",
+        "color": "maroon-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/71-YUtENF-L._AC_SY879_.jpg"
     },
     {
         "id": 11,
-        "color": "pink",
+        "color": "pink-f",
         "price": 15,
         "imageURL" : "https://m.media-amazon.com/images/I/710Q0UY0JOL._AC_SY879_.jpg"
     }
