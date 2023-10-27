@@ -29,7 +29,7 @@ app.get('/cart', getCart)
 app.post('/cart', addToCart)
 
 
-app.delete('/api/houses/:id', deleteItem)
+app.delete('/cart/:id', deleteItem)
 
 
 

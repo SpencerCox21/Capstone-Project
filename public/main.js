@@ -1,15 +1,15 @@
 const baseURL = `http://localhost:5500`
 
 const itemContainer = document.querySelector('#item-container')
-
 const cartCount = document.querySelector('#cart-count')
 const cartContainer = document.querySelector('#cart-container')
-const deleteFromCartBtn = document.querySelector('#deleteFromCartBtn')
+
 
 const mShirtLink = document.querySelector('#mShirtLink')
 const fShirtLink = document.querySelector('#fShirtLink')
 const mPantLink = document.querySelector('#mPantLink')
 const fPantLink = document.querySelector('#fPantLink')
+const showCart = document.querySelector('#show-cart-btn')
 
 let cartCountText = document.querySelector("#cart-count");
 let footer = document.querySelector("footer");
@@ -28,9 +28,9 @@ const getMShirt = () => axios.get(`${baseURL}/mshirt`).then((res) => {displayMSh
 const getFShirt = () => axios.get(`${baseURL}/fshirt`).then((res) => {displayFShirt(res.data)}).catch(errCallback)
 const getMPant = () => axios.get(`${baseURL}/mpant`).then((res) => {displayMPant(res.data)}).catch(errCallback)
 const getFPant = () => axios.get(`${baseURL}/fpant`).then((res) => {displayFPant(res.data)}).catch(errCallback)
-// const getCart = () => axios.get(`${baseURL}/cart`).then(cartCallback).catch(errCallback)
+const getCart = () => axios.get(`${baseURL}/cart`).then((res) => {displayCart(res.data)}).catch(errCallback)
 
-const deleteItem = color => axios.delete(`${baseURL}/cart.${color}`).then(cartCallback).catch(errCallback)
+const deleteItem = id => axios.delete(`${baseURL}/cart.${id}`).then(cartCallback).catch(errCallback)
 
 
 
@@ -42,6 +42,7 @@ mShirtLink.addEventListener("click", getMShirt);
 fShirtLink.addEventListener("click", getFShirt);
 mPantLink.addEventListener("click", getMPant);
 fPantLink.addEventListener("click", getFPant);
+showCart.addEventListener("click", getCart);
 
 
 
@@ -182,6 +183,7 @@ function addToCart(item) {
 
 
 
+
 function addToCartSection(cart) {
     const itemCard = document.createElement('div')
     itemCard.classList.add('shirt-border')
@@ -189,15 +191,23 @@ function addToCartSection(cart) {
     itemCard.innerHTML = `<img alt='item image' src=${cart.imageURL} class="shirt-pic"/>
     <p class="color">${cart.color}</p>
     <div class="btns-container">
-    <button id="deleteFromCartBtn">Delete from Cart</button>
+    <button class="deleteFromCartBtn" id="btn_${cart.id}">Delete from Cart</button>
     </div>
     `
-    // replace button line with <button onclick="addToCart(${mshirt.id})"> when I get the addToCart fuction made.
-
-
+    
     cartContainer.appendChild(itemCard)
-}
+    const deleteFromCartBtn = document.querySelector(`#btn_${cart.id}`)
 
+    deleteFromCartBtn.addEventListener("click", () => {
+        deleteFromCart(cart)
+    })
+}
+function displayCart(arr) {
+    cartContainer.innerHTML = ``
+    for (let i = 0; i < arr.length; i++) {
+        addToCartSection(arr[i])
+    }
+}
 
 
 

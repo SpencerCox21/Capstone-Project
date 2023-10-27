@@ -118,8 +118,12 @@ body {
     width: 700px;
   }
   
-  /* input {
-    font-family: sans-serif;
-    width: 200px;
-  } */
+  section {
+    background-color: darkgrey;
+  }
   
+  #show-cart-btn{
+    font-size: x-large;
+    font-weight: 700;
+    padding-left: 20px;
+  }
