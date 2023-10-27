@@ -30,8 +30,7 @@ const getMPant = () => axios.get(`${baseURL}/mpant`).then((res) => {displayMPant
 const getFPant = () => axios.get(`${baseURL}/fpant`).then((res) => {displayFPant(res.data)}).catch(errCallback)
 const getCart = () => axios.get(`${baseURL}/cart`).then((res) => {displayCart(res.data)}).catch(errCallback)
 
-const deleteItem = id => axios.delete(`${baseURL}/cart.${id}`).then(cartCallback).catch(errCallback)
-
+const deleteItem = id => axios.delete(`${baseURL}/cart/${id}`).then((res) => {deleteFromCart(res.data)}).catch(errCallback)
 
 
 
@@ -43,6 +42,7 @@ fShirtLink.addEventListener("click", getFShirt);
 mPantLink.addEventListener("click", getMPant);
 fPantLink.addEventListener("click", getFPant);
 showCart.addEventListener("click", getCart);
+
 
 
 
@@ -194,7 +194,7 @@ function addToCartSection(cart) {
     <button class="deleteFromCartBtn" id="btn_${cart.id}">Delete from Cart</button>
     </div>
     `
-    
+
     cartContainer.appendChild(itemCard)
     const deleteFromCartBtn = document.querySelector(`#btn_${cart.id}`)
 
@@ -212,9 +212,15 @@ function displayCart(arr) {
 
 
 
+function deleteFromCart(item) {
+
+    axios.delete(`${baseURL}/cart`, item).then((res) => {
+        console.log(res.data)
 
 
-
+        cartCount.textContent = `${res.data.length} Item(s)`
+    })
+}
 
 
 

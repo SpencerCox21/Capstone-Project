@@ -36,9 +36,12 @@ module.exports = {
     },
 
     deleteItem: (req, res) => {
-        let index = houses.findIndex(houses => houses.id === +req.params.id)
-        houses.splice(index, 1)
-        res.status(200).send(houses)
+        console.log("Got the data.")
+
+        let index = cart.findIndex(item => item.id === req.params.id)
+        cart.splice(index, 1)
+        res.status(200).send(cart)
+
     }
 
 }
