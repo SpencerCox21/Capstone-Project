@@ -1,7 +1,10 @@
 const baseURL = `http://localhost:5500`
 
 const itemContainer = document.querySelector('#item-container')
+
+const cartCount = document.querySelector('#cart-count')
 const cartContainer = document.querySelector('#cart-container')
+const deleteFromCartBtn = document.querySelector('#deleteFromCartBtn')
 
 const mShirtLink = document.querySelector('#mShirtLink')
 const fShirtLink = document.querySelector('#fShirtLink')
@@ -17,12 +20,6 @@ let commetnBtn = document.querySelector("#comment");
 
 
 
-
-// const mshirtCallback = ({ data: mshirt }) => displayMShirt(mshirt)
-// const fshirtCallback = ({ data: fshirt }) => displayFShirt(fshirt)
-// const mpantCallback = ({ data: mpant }) => displayMPant(mpant)
-// const fpantCallback = ({ data: fpant }) => displayFPant(fpant)
-// const cartCallback = ({ data: cart }) => displayCart(cart)
 const errCallback = err => console.log(err);
 
 
@@ -51,19 +48,28 @@ fPantLink.addEventListener("click", getFPant);
 
 
 
+
+
+
+
 function createItemCardMShirt(mshirt) {
+
     const itemCard = document.createElement('div')
     itemCard.classList.add('shirt-border')
 
     itemCard.innerHTML = `<img alt='shirt image' src=${mshirt.imageURL} class="shirt-pic"/>
     <p class="color">${mshirt.color}</p>
     <div class="btns-container">
-    <button>Add to Cart</button>
+    <button class="addToCartBtn" id="btn_${mshirt.id}">Add to Cart</button>
     </div>
     `
-    // replace button line with <button onclick="addToCart(${mshirt.id})"> when I get the addToCart fuction made.
-
+    
     itemContainer.appendChild(itemCard)
+    const addToCartBtn = document.querySelector(`#btn_${mshirt.id}`)
+
+    addToCartBtn.addEventListener("click", () => {
+        addToCart(mshirt)
+    })
 }
 function displayMShirt(arr) {
     itemContainer.innerHTML = ``
@@ -81,13 +87,18 @@ function createItemCardFShirt(fshirt) {
     itemCard.innerHTML = `<img alt='shirt image' src=${fshirt.imageURL} class="shirt-pic"/>
     <p class="color">${fshirt.color}</p>
     <div class="btns-container">
-    <button>Add to Cart</button>
+    <button class="addToCartBtn" id="btn_${fshirt.id}">Add to Cart</button>
     </div>
     `
-    // replace button line with <button onclick="addToCart(${mshirt.id})"> when I get the addToCart fuction made.
+    
 
 
     itemContainer.appendChild(itemCard)
+    const addToCartBtn = document.querySelector(`#btn_${fshirt.id}`)
+
+    addToCartBtn.addEventListener("click", () => {
+        addToCart(fshirt)
+    })
 }
 function displayFShirt(arr) {
     itemContainer.innerHTML = ``
@@ -105,13 +116,17 @@ function createItemCardMPant(mpant) {
     itemCard.innerHTML = `<img alt='pant image' src=${mpant.imageURL} class="shirt-pic"/>
     <p class="color">${mpant.color}</p>
     <div class="btns-container">
-    <button>Add to Cart</button>
+    <button class="addToCartBtn" id="btn_${mpant.id}">Add to Cart</button>
     </div>
     `
-    // replace button line with <button onclick="addToCart(${mshirt.id})"> when I get the addToCart fuction made.
 
 
     itemContainer.appendChild(itemCard)
+    const addToCartBtn = document.querySelector(`#btn_${mpant.id}`)
+
+    addToCartBtn.addEventListener("click", () => {
+        addToCart(mpant)
+    })
 }
 function displayMPant(arr) {
     itemContainer.innerHTML = ``
@@ -129,13 +144,17 @@ function createItemCardFPant(fpant) {
     itemCard.innerHTML = `<img alt='pant image' src=${fpant.imageURL} class="shirt-pic"/>
     <p class="color">${fpant.color}</p>
     <div class="btns-container">
-    <button>Add to Cart</button>
+    <button class="addToCartBtn" id="btn_${fpant.id}">Add to Cart</button>
     </div>
     `
-    // replace button line with <button onclick="addToCart(${mshirt.id})"> when I get the addToCart fuction made.
-
+    
 
     itemContainer.appendChild(itemCard)
+    const addToCartBtn = document.querySelector(`#btn_${fpant.id}`)
+
+    addToCartBtn.addEventListener("click", () => {
+        addToCart(fpant)
+    })
 }
 function displayFPant(arr) {
     itemContainer.innerHTML = ``
@@ -148,16 +167,46 @@ function displayFPant(arr) {
 
 
 
-let count = 0;
 
-function addToCart() {
-  count++;
-  if (count === 1) {
-    cartCountText.textContent = count + " Item";
-  } else {
-    cartCountText.textContent = count + " Items";
-  }
+
+
+function addToCart(item) {
+
+    axios.post(`${baseURL}/cart`, item).then((res) => {
+        console.log(res.data)
+        cartCount.textContent = `${res.data.length} Item(s)`
+    })
 }
+
+
+
+
+
+function addToCartSection(cart) {
+    const itemCard = document.createElement('div')
+    itemCard.classList.add('shirt-border')
+
+    itemCard.innerHTML = `<img alt='item image' src=${cart.imageURL} class="shirt-pic"/>
+    <p class="color">${cart.color}</p>
+    <div class="btns-container">
+    <button id="deleteFromCartBtn">Delete from Cart</button>
+    </div>
+    `
+    // replace button line with <button onclick="addToCart(${mshirt.id})"> when I get the addToCart fuction made.
+
+
+    cartContainer.appendChild(itemCard)
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

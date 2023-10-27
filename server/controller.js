@@ -2,6 +2,7 @@ const mshirt = require('./mshirt.json')
 const fshirt = require('./fshirt.json')
 const mpant = require('./mpant.json')
 const fpant = require('./fpant.json')
+const cart = require('./cart.json')
 
 
 
@@ -26,6 +27,11 @@ module.exports = {
     },
 
     getCart: (req, res) => {
+        res.status(200).send(cart)
+    },
+
+    addToCart: (req, res) => {
+        cart.push(req.body)
         res.status(200).send(cart)
     },
 
