@@ -36,8 +36,6 @@ module.exports = {
     },
 
     deleteItem: (req, res) => {
-        console.log("Got the data.")
-        // let id = req.params.id
 
         let index = cart.findIndex(item => item.id === req.params.id)
         cart.splice(index, 1)

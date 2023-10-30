@@ -40,7 +40,7 @@ mShirtLink.addEventListener("click", getMShirt);
 fShirtLink.addEventListener("click", getFShirt);
 mPantLink.addEventListener("click", getMPant);
 fPantLink.addEventListener("click", getFPant);
-showCart.addEventListener("click", getCart);
+showCart.addEventListener("click", purchaseCart);
 
 
 
@@ -175,7 +175,7 @@ function displayFPant(arr) {
 function addToCart(item) {
 
     axios.post(`${baseURL}/cart`, item).then((res) => {
-        console.log(res.data)
+        displayCart(res.data)
         cartCount.textContent = `${res.data.length} Item(s)`
     })
 }
@@ -214,6 +214,24 @@ function displayCart(arr) {
 
 
 
+
+
+
+
+function purchaseCart(cart) {
+    for (let i = 0; i < cart.length; i++) {
+        deleteFromCart(cart[i])
+    }
+    cartContainer.innerHTML = `Thank you for your purchase, you should receive a purchase email shortly!`
+    cartCount.textContent = `${cart.length} Item(s)`
+}
+
+
+
+
+
+
+
 function deleteFromCart(event) {
 // console.log(event)
 let item = event.target.getAttribute("cart-id")
@@ -243,4 +261,4 @@ function commentSubmit() {
   commentBtn.addEventListener("click", commentSubmit);
   
   
-getCart()
+
