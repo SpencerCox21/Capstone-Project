@@ -14,8 +14,8 @@ const showCart = document.querySelector('#show-cart-btn')
 let cartCountText = document.querySelector("#cart-count");
 let footer = document.querySelector("footer");
 
-let commentForm = document.querySelector(".comment");
-let commetnBtn = document.querySelector("#comment");
+let commentForm = document.querySelector("#commentForm");
+let commentBtn = document.querySelector("#commentBtn");
 
 
 
@@ -194,10 +194,10 @@ function addToCartSection(cart) {
     <button class="deleteFromCartBtn" id="btn_${cart.id}">Delete from Cart</button>
     </div>
     `
-
+    
     cartContainer.appendChild(itemCard)
     const deleteFromCartBtn = document.querySelector(`#btn_${cart.id}`)
-
+    
     deleteFromCartBtn.addEventListener("click", () => {
         deleteFromCart(cart)
     })
@@ -207,6 +207,7 @@ function displayCart(arr) {
     for (let i = 0; i < arr.length; i++) {
         addToCartSection(arr[i])
     }
+    cartCount.textContent = `${arr.length} Item(s)`
 }
 
 
@@ -226,17 +227,17 @@ function deleteFromCart(item) {
 
 
 
-// function commentSubmit() {
-//     var confirmationMessage = document.createElement("p");
-//     confirmationMessage.textContent =
-//       "Thank you for leaving a comment."
+function commentSubmit() {
+    // var confirmationMessage = document.createElement("p");
+    // confirmationMessage.textContent =
+    //   "Thank you for leaving a comment."
   
-//     commentForm.remove();
+    commentForm.innerHTML = "Thank you for your feedback!"
   
-//     footer.appendChild(confirmationMessage);
-//   }
+    // footer.appendChild(confirmationMessage);
+  }
   
-//   commentBtn.addEventListener("click", commentSubmit);
+  commentBtn.addEventListener("click", commentSubmit);
   
   
 
