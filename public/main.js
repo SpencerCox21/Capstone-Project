@@ -41,6 +41,7 @@ fShirtLink.addEventListener("click", getFShirt);
 mPantLink.addEventListener("click", getMPant);
 fPantLink.addEventListener("click", getFPant);
 showCart.addEventListener("click", purchaseCart);
+commentBtn.addEventListener("click", commentSubmit);
 
 
 
@@ -170,8 +171,6 @@ function displayFPant(arr) {
 
 
 
-
-
 function addToCart(item) {
 
     axios.post(`${baseURL}/cart`, item).then((res) => {
@@ -197,11 +196,7 @@ function addToCartSection(cart) {
     `
     
     cartContainer.appendChild(itemCard)
-    const deleteFromCartBtn = document.querySelector(`#btn_${cart.id}`)
-    
-    deleteFromCartBtn.addEventListener("click", () => {
-        deleteFromCart(cart)
-    })
+
 }
 function displayCart(arr) {
     cartContainer.innerHTML = ``
@@ -218,12 +213,12 @@ function displayCart(arr) {
 
 
 
-function purchaseCart(cart) {
-    for (let i = 0; i < cart.length; i++) {
-        deleteFromCart(cart[i])
-    }
+function purchaseCart() {
+    axios.delete(`${baseURL}/cart`).then((res) => {
+
     cartContainer.innerHTML = `Thank you for your purchase, you should receive a purchase email shortly!`
-    cartCount.textContent = `${cart.length} Item(s)`
+    cartCount.textContent = `${res.data.length} Item(s)`
+})
 }
 
 
@@ -231,13 +226,9 @@ function purchaseCart(cart) {
 
 
 
-
 function deleteFromCart(event) {
-// console.log(event)
 let item = event.target.getAttribute("cart-id")
-// console.log(item)
     axios.delete(`${baseURL}/cart/${item}`).then((res) => {
-        // console.log(res.data)
 
         displayCart(res.data)
         cartCount.textContent = `${res.data.length} Item(s)`
@@ -249,16 +240,9 @@ let item = event.target.getAttribute("cart-id")
 
 
 function commentSubmit() {
-    // var confirmationMessage = document.createElement("p");
-    // confirmationMessage.textContent =
-    //   "Thank you for leaving a comment."
-  
     commentForm.innerHTML = "Thank you for your feedback!"
+}
   
-    // footer.appendChild(confirmationMessage);
-  }
-  
-  commentBtn.addEventListener("click", commentSubmit);
   
   
 

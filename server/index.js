@@ -11,7 +11,7 @@ app.use(cors())
 
 
 
-const {getShirtM, getShirtF, getPantM, getPantF, getCart, addToCart, deleteItem} = require('./controller')
+const {getShirtM, getShirtF, getPantM, getPantF, getCart, addToCart, purchaseCart, deleteItem} = require('./controller')
 
  
 
@@ -26,8 +26,11 @@ app.get('/fpant', getPantF)
 
 app.get('/cart', getCart)
 
+
 app.post('/cart', addToCart)
 
+
+app.delete('/cart', purchaseCart)
 
 app.delete('/cart/:id', deleteItem)
 
