@@ -178,7 +178,7 @@ function addToCart(item) {
         console.log(res.data)
         cartCount.textContent = `${res.data.length} Item(s)`
     })
-}deleteItem
+}
 
 
 
@@ -243,4 +243,4 @@ function commentSubmit() {
   commentBtn.addEventListener("click", commentSubmit);
   
   
-
+getCart()
