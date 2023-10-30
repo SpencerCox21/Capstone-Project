@@ -30,7 +30,6 @@ const getMPant = () => axios.get(`${baseURL}/mpant`).then((res) => {displayMPant
 const getFPant = () => axios.get(`${baseURL}/fpant`).then((res) => {displayFPant(res.data)}).catch(errCallback)
 const getCart = () => axios.get(`${baseURL}/cart`).then((res) => {displayCart(res.data)}).catch(errCallback)
 
-const deleteItem = id => axios.delete(`${baseURL}/cart/${id}`).then((res) => {deleteFromCart(res.data)}).catch(errCallback)
 
 
 
@@ -42,6 +41,8 @@ fShirtLink.addEventListener("click", getFShirt);
 mPantLink.addEventListener("click", getMPant);
 fPantLink.addEventListener("click", getFPant);
 showCart.addEventListener("click", getCart);
+
+
 
 
 
@@ -177,7 +178,7 @@ function addToCart(item) {
         console.log(res.data)
         cartCount.textContent = `${res.data.length} Item(s)`
     })
-}
+}deleteItem
 
 
 
@@ -191,7 +192,7 @@ function addToCartSection(cart) {
     itemCard.innerHTML = `<img alt='item image' src=${cart.imageURL} class="shirt-pic"/>
     <p class="color">${cart.color}</p>
     <div class="btns-container">
-    <button class="deleteFromCartBtn" id="btn_${cart.id}">Delete from Cart</button>
+    <button class="deleteFromCartBtn" cart-id="${cart.id}" onclick="deleteFromCart(event)" id="btn_${cart.id}">Delete from Cart</button>
     </div>
     `
     
@@ -213,12 +214,14 @@ function displayCart(arr) {
 
 
 
-function deleteFromCart(item) {
+function deleteFromCart(event) {
+// console.log(event)
+let item = event.target.getAttribute("cart-id")
+// console.log(item)
+    axios.delete(`${baseURL}/cart/${item}`).then((res) => {
+        // console.log(res.data)
 
-    axios.delete(`${baseURL}/cart`, item).then((res) => {
-        console.log(res.data)
-
-
+        displayCart(res.data)
         cartCount.textContent = `${res.data.length} Item(s)`
     })
 }
